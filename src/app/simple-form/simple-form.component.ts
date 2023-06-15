@@ -14,21 +14,15 @@ export class SimpleFormComponent {
     dob: ["",[Validators.required]],
     subscribe: false,
   })
-
-  public formUpdates$ = {}
-  // this.form.valueChanges.pipe(
-  //   startWith(this.form.value),
-  //   map((formValues) => {
-  //     return { ...formValues, valid: this.form.valid };
-  //   })
-  // );
+  public completeForm$ = {}
 
   public isValid = false;
 
   submit() {
-    console.log(this.form.value)
     this.isValid = this.form.valid;
-    this.formUpdates$ = this.form.value
+    if(this.isValid){
+      this.completeForm$ = this.form.value
+    }
   }
 
   constructor(private _fb: FormBuilder) { }
