@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroupComponent } from './form-group/form-group.component';
+import { TodoFormComponent } from './todo-form/todo-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleFormComponent
+    SimpleFormComponent,
+    FormGroupComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,

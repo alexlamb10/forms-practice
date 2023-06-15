@@ -1,0 +1,31 @@
+<button
+  class="button bg-sky-500 rounded p-2 text-white ml-5"
+  (click)="addTodoFormGroup()"
+>
+  Add Todo
+</button>
+<button
+[disabled]="form.invalid"
+  class="button bg-sky-500 rounded p-2 text-white ml-5 disabled:opacity-50"
+  (click)="submit()"
+>
+  Submit
+</button>
+<form [formGroup]="form" class="flex flex-col gap-4 p-4 mb-8">
+  <ng-container formArrayName="todos" class="ml-5">
+    <app-todo-form
+      *ngFor="let todo of todosArrayFormGroups; let index = index"
+      [form]="todo"
+      [index]="index"
+      (remove)="removeFormGroup($event)"
+    >
+    </app-todo-form>
+  </ng-container>
+</form>
+
+<ng-container *ngIf="isValid">
+  <pre><code>
+    {{ completeForm$  | json }}
+  </code></pre>
+</ng-container>
+
