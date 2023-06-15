@@ -1,1 +1,25 @@
-<p>simple-form works!</p>
+<form [formGroup]="form">
+  <div class="w-96 flex justify-around p-2">
+    <label class=" w-32 text-right" for="fname">First Name:</label>
+    <input class=" w-32" id="fname" type="text" formControlName="firstName" placeholder="First Name">
+  </div>
+  <div class="w-96 flex justify-around p-2">
+    <label class=" w-32 text-right" for="lname">Last Name:</label>
+    <input class=" w-32" id="lname" type="text" formControlName="lastName" placeholder="Last Name">
+  </div>
+  <div class="w-96 flex justify-around p-2">
+    <label class=" w-32 text-right" for="dob">DOB:</label>
+    <input class=" w-32" id="dob" type="date" formControlName="dob">
+  </div>
+  <div class="w-96 flex justify-around p-2">
+    <label class=" w-32 text-right" for="subscribe">Subscribe:</label>
+    <div class=" w-32">
+      <input id="subscribe" type="checkbox" formControlName="subscribe">
+    </div>
+  </div>
+  <button (click)="submit()">Submit</button>
+</form>
+<div *ngIf="isValid">
+  {{ formUpdates$  | json }}
+</div>
+
