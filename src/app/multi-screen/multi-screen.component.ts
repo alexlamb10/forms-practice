@@ -49,9 +49,14 @@ export class MultiScreenComponent {
 
     step === 'login' ? this.stepDisplay.login = true : this.stepDisplay.info = true;
   }
-  // submit() {
-  //   if (this.form.valid) {
-  //     console.log(this.form.value);
-  //   }
-  // }
+  public completeForm$ = {}
+
+  public isValid = false;
+
+  submit() {
+    this.isValid = this.form.valid;
+    if(this.isValid){
+      this.completeForm$ = this.form.value
+    }
+  }
 }
